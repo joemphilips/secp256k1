@@ -1,0 +1,17 @@
+from phusion/baseimage:latest
+MAINTAINER Joe Miyamoto <joemphilips@gmail.com>
+SHELL ["/bin/bash", "-c"]
+
+RUN apt-get update && apt-get -y install git autotools-dev autoconf libtool make libreadline-dev
+
+RUN git clone --depth=1 https://github.com/bitcoin-core/secp256k1 /usr/src/secp256k1
+
+WORKDIR /usr/src/secp256k1
+
+RUN ./autogen.sh
+RUN ./configure
+RUN make
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp_* /var/tmp/*
+
+CMD ["cp", "-r", "/usr/src/secp256k1/.libs", "/usr/output/ubuntu"]

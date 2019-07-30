@@ -48,3 +48,11 @@ build-aux/compile
 build-aux/test-driver
 src/stamp-h1
 libsecp256k1.pc
+
+# added by joemphilips
+*.dylib
+*.so.0
+*.lai
+*.so.0.0.0
+
+
