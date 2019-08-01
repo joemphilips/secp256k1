@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Condition="'$(SkipSecp256k1NativeLibCopy)' != 'true'">
 
-    
+    <!--
     <Content Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x64\native\secp256k1.dll">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -17,6 +17,8 @@
       <Visible>true</Visible>
       <Pack>false</Pack>
     </Content>
+    -->
+
     <Content Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-x64\native\libsecp256k1.so">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

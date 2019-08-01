@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Secp256k1.Native</id>
-    <version>0</version>
+    <version>0.0.3-joemphilips</version>
     <authors>Hosho;joemphilips</authors>
     <owners>joemphilips</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,6 +15,6 @@
     <file src="build/macos/libsecp256k1.dylib" target="runtimes/osx-x64/native/libsecp256k1.dylib" />
     <!-- <file src="lib/win-x64/secp256k1.dll" target="runtimes/win-x64/native/secp256k1.dll" /> -->
     <!-- <file src="lib/win-x86/secp256k1.dll" target="runtimes/win-x86/native/secp256k1.dll" /> -->
-    <!-- <file src="Secp256k1.Native.targets" target="build/netstandard1.0"/> -->
+    <file src="Secp256k1.Native.targets" target="build/netstandard1.0"/>
   </files>
 </package>

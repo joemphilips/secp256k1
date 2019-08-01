@@ -16,4 +16,4 @@ else
 fi
 
 nuget pack -OutputDirectory package_output
-dotnet nuget push package_output/Secp256k1.Native.0.0.0.nupkg -k $NUGET_API_KEY_SECP256K1 -s https://www.myget.org/F/joemphilips/api/v2/package
+dotnet nuget push package_output/Secp256k1.Native.0.0.3-joemphilips.nupkg -k $NUGET_API_KEY_SECP256K1 -s https://www.myget.org/F/joemphilips/api/v2/package
