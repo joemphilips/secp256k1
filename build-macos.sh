@@ -12,3 +12,4 @@ cd $SCRIPT_DIR_PATH
 
 
 ./autogen.sh && ./configure && make -j6
+cp ./.libs/libsecp256k1.dylib ./build/macos
