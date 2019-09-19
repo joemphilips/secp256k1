@@ -11,4 +11,4 @@ fi
 cd $SCRIPT_DIR_PATH
 
 docker build -f  ./Dockerfile.ubuntu . -t secp256k1-builder &&
-  docker run -it  -v $(pwd)/build/ubuntu:/usr/output secp256k1-builder
+  docker run -it -v $(pwd)/build/ubuntu:/usr/output secp256k1-builder

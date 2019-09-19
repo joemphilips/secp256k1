@@ -11,5 +11,5 @@ fi
 cd $SCRIPT_DIR_PATH
 
 
-./autogen.sh && ./configure && make -j6
+./autogen.sh && ./configure --enable-module-ecdh --enable-module-recovery --enable-experimental && make -j6
 cp ./.libs/libsecp256k1.dylib ./build/macos

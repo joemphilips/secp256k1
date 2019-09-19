@@ -9,7 +9,7 @@ RUN git clone --depth=1 https://github.com/bitcoin-core/secp256k1 /usr/src/secp2
 WORKDIR /usr/src/secp256k1
 
 RUN ./autogen.sh
-RUN ./configure
+RUN ./configure --enable-module-ecdh --enable-module-recovery --enable-experimental
 RUN make
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp_* /var/tmp/*

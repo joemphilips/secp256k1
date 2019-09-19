@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -u
 
-readonly VERSION="1.0"
 if [[ "$(uname)" == 'Darwin' ]]; then
   readonly SCRIPT_DIR_PATH=$(dirname $(greadlink -f $0))
 else
@@ -15,5 +14,7 @@ else
   ./build-ubuntu.sh
 fi
 
+readonly VERSION="0.0.5"
+
 nuget pack -OutputDirectory package_output
-dotnet nuget push package_output/Secp256k1.Native.0.0.3-joemphilips.nupkg -k $NUGET_API_KEY_SECP256K1 -s https://www.myget.org/F/joemphilips/api/v2/package
+dotnet nuget push package_output/Secp256k1.Native.${VERSION}-joemphilips.nupkg -k $NUGET_API_KEY_SECP256K1 -s https://www.myget.org/F/joemphilips/api/v2/package
