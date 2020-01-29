@@ -170,7 +170,7 @@ typedef int (*secp256k1_nonce_function)(
 #define SECP256K1_CONTEXT_SIGN (SECP256K1_FLAGS_TYPE_CONTEXT | SECP256K1_FLAGS_BIT_CONTEXT_SIGN)
 #define SECP256K1_CONTEXT_NONE (SECP256K1_FLAGS_TYPE_CONTEXT)
 
-/** Flag to pass to secp256k1_ec_pubkey_serialize and secp256k1_ec_privkey_export. */
+/** Flag to pass to secp256k1_ec_pubkey_serialize. */
 #define SECP256K1_EC_COMPRESSED (SECP256K1_FLAGS_TYPE_COMPRESSION | SECP256K1_FLAGS_BIT_COMPRESSION)
 #define SECP256K1_EC_UNCOMPRESSED (SECP256K1_FLAGS_TYPE_COMPRESSION)
 
@@ -258,7 +258,7 @@ SECP256K1_API void secp256k1_context_destroy(
  *   - void secp256k1_default_error_callback_fn(const char* message, void* data);
  *  The library can call these default handlers even before a proper callback data
  *  pointer could have been set using secp256k1_context_set_illegal_callback or
- *  secp256k1_context_set_illegal_callback, e.g., when the creation of a context
+ *  secp256k1_context_set_error_callback, e.g., when the creation of a context
  *  fails. In this case, the corresponding default handler will be called with
  *  the data pointer argument set to NULL.
  *

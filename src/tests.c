@@ -2240,7 +2240,7 @@ void test_ge(void) {
     /* Test batch gej -> ge conversion with many infinities. */
     for (i = 0; i < 4 * runs + 1; i++) {
         random_group_element_test(&ge[i]);
-        /* randomly set half the points to infinitiy */
+        /* randomly set half the points to infinity */
         if(secp256k1_fe_is_odd(&ge[i].x)) {
             secp256k1_ge_set_infinity(&ge[i]);
         }
@@ -5169,6 +5169,15 @@ void run_ecdsa_openssl(void) {
 int main(int argc, char **argv) {
     unsigned char seed16[16] = {0};
     unsigned char run32[32] = {0};
+
+    /* Disable buffering for stdout to improve reliability of getting
+     * diagnostic information. Happens right at the start of main because
+     * setbuf must be used before any other operation on the stream. */
+    setbuf(stdout, NULL);
+    /* Also disable buffering for stderr because it's not guaranteed that it's
+     * unbuffered on all systems. */
+    setbuf(stderr, NULL);
+
     /* find iteration count */
     if (argc > 1) {
         count = strtol(argv[1], NULL, 0);
@@ -5180,7 +5189,7 @@ int main(int argc, char **argv) {
         const char* ch = argv[2];
         while (pos < 16 && ch[0] != 0 && ch[1] != 0) {
             unsigned short sh;
-            if (sscanf(ch, "%2hx", &sh)) {
+            if ((sscanf(ch, "%2hx", &sh)) == 1) {
                 seed16[pos] = sh;
             } else {
                 break;
